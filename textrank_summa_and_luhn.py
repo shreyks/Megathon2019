@@ -1,7 +1,10 @@
 from summa.summarizer import summarize
 from nltk.tokenize import sent_tokenize
+import sys 
 
-text = open('bio-cleaned')
+filename = sys.argv[1]
+
+text = open(filename)
 text = text.read() 
 summary_2 = summarize(text, ratio=0.5)
     # print(summary_2)
@@ -12,7 +15,7 @@ from sumy.parsers.plaintext import PlaintextParser
 #for tokenization
 from sumy.nlp.tokenizers import Tokenizer
 
-filename = "bio-cleaned" 
+# filename = "bio-cleaned" 
 parser = PlaintextParser.from_file(filename, Tokenizer("english"))
 
 from sumy.summarizers.luhn import LuhnSummarizer
@@ -64,5 +67,7 @@ for i in summary_1:
 # sorted (result_array,key = result_array.get)
 # print (result_array)
     
-for i in results:
-    print (i)
+# for i in results:
+#     print (i)
+
+# f= open("selected_lines.txt","w+")
